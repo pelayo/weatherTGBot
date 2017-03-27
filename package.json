@@ -1,0 +1,24 @@
+{
+  "name": "weathertgbot",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pelayo/weatherTGBot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pelayo/weatherTGBot/issues"
+  },
+  "homepage": "https://github.com/pelayo/weatherTGBot#readme",
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "moment": "^2.18.1",
+    "node-telegram-bot-api": "^0.27.0"
+  }
+}
