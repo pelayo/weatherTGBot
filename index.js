@@ -13,9 +13,18 @@ const mongoUrl = 'mongodb://localhost:27017/tgWeather'
 const bot = new TelegramBot(token, {polling: true});
 const attachBot = (bot, db) => {
   bot.onText(/\/warning (over|under) (-|\+\d+) (\d+) (hours|days)/, (msg, match) => {
+    console.log(msg)
     const chatId = msg.chat.id;
-    console.log(match)
     const resp = match[1]; // the captured "whateveir"
+    const opts = {
+      reply_to_message_id: msg.message_id,
+      reply_markup: JSON.stringify({
+        keyboard: [
+          ['va ha hacer frio'],
+          ['va hacer la caló']
+        ]
+      })
+    }
     db.collection('alarms').insert({
       msg,
       type: match[1],
@@ -23,7 +32,8 @@ const attachBot = (bot, db) => {
       time: match[3],
       timeUnit: match[4]
     })
-    bot.sendMessage(chatId, resp);
+    bot.sendMessage(chatId, resp, opts);
+
   });
 }
 
